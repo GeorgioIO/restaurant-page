@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+
 *
 {
     margin: 0;
@@ -11,9 +13,35 @@
 :root{
     --logo-font : "Yeseva One", serif;
     --general-font : "Winky Sans", sans-serif;
+    --menu-font : "Katibeh", serif;
 }
 
+/* animations */
+@keyframes showSideBar{
+    0%{
+        transform: translateY(-300px);
+    }
+    100%{
+        transform: translateY(80px);
+    }
+}
 
+@keyframes hideSideBar{
+    0%{
+        transform: translateY(80px);
+    }
+    100%{
+        transform: translateY(-300px);
+    }
+}
+
+.showSideBar{
+    animation: showSideBar 400ms ease-in-out forwards;
+}
+
+.hideSideBar{
+    animation: hideSideBar 400ms ease-in-out forwards;
+}
 
 html{
     height: 100vh;
@@ -37,6 +65,8 @@ body
 }
 
 
+
+
 header{
     display: flex;
     width: 100%;
@@ -45,6 +75,8 @@ header{
     padding: 20px 20px 10px 20px;
     background-color: white;
     box-shadow: 0px 0px 30px 0px rgb(219, 219, 219);
+    position: fixed;
+    top: 0;
 }
 
 header > .header-logo{
@@ -85,33 +117,64 @@ nav > .navigation-button:hover{
 
 }
 
-#homeBtn{
+.homeBtn{
     background-color: #75A843;
 }
 
-#homeBtn:hover{
+.homeBtn:hover{
     background-color: #67b717;
 }   
 
-#menuBtn{
+.menuBtn{
     background-color: #FFFFFF;
 }
 
-#menuBtn:hover{
+.menuBtn:hover{
     background-color: #cccccc;
 }
 
-#aboutBtn{
+.contactBtn{
     background-color: #ED4C5C;
 }
 
-#aboutBtn:hover{
+.contactBtn:hover{
     background-color: #ec192e;
 }
 
+.burger-menu{
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger-menu > div{
+    width: 100%;
+    height: 4px;
+    border-radius: .45rem;
+    background-color: black;
+    border: 1px solid   black;
+}
+
+#sidebar{
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    z-index: -1;
+    transform: translateY(-300px);
+}
 #content{
     width: 100%;
-    height: 100%;
+    
+    height: auto;
+    padding: 150px 0px 150px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,7 +223,116 @@ nav > .navigation-button:hover{
     max-width: 120ch;
     text-wrap: balance;
     font-family: var(--general-font);
+    padding: 10px;
 }
+
+.menu
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 20px;
+    padding: 10px;
+}
+
+.menu-item{
+    display: grid;
+    width: 850px;
+    height: 300px;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto;
+    column-gap: 90px;
+    border-radius: .45rem;
+    border: 2px solid black;
+    font-family: var(--menu-font);
+
+}
+
+.top-information{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.text-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 0px 0px;
+}
+
+.text-price > h3,
+.text-price > p{
+    font-size: 2rem;
+}
+
+
+.menu-item-information{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.ingredients{
+    flex-grow: 1;
+    padding: 0px 0px 15px 25px;
+    list-style-type: disc;
+
+}
+
+.ingredients > li{
+
+    font-size: 1.75rem;
+}
+
+.menu-item > img{
+    width: 250px;
+    height: 250px;
+    padding: 15px 0px 15px 15px;
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.contacts > h3{
+    font-family: var(--general-font);
+    font-size: 2rem;
+}
+
+.contacts-container{
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+}
+
+.contacts-container > .contact{
+    background-color: white;
+    height: 250px;
+    width: 250px;
+    border-radius: .85rem;
+    border: 2px solid black;
+    padding: 20px;
+    font-family: var(--general-font);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 
 footer{
     display: flex;
@@ -170,9 +342,65 @@ footer{
     padding: 20px 20px 20px 20px;
     background-color: white;
     box-shadow: 0px 0px 30px 0px rgb(219, 219, 219);
+    position: fixed;
+    bottom: 0;
+    text-align: center;
 }
 
 footer > p{
     font-family: var(--general-font);
     font-size: 1.15rem;
+
+}
+
+@media (max-width: 900px)
+{
+    .menu-item{
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+@media (max-width: 600px)
+{
+
+    .menu-item{
+        grid-template-columns: 100%;
+        grid-template-rows: 200px auto;
+        column-gap: 0px;
+        row-gap: 50px;
+    }
+
+    .menu-item > img{
+        /* width: 250px;
+        height: 250px;
+        padding: 15px 0px 15px 15px; */
+        justify-self: center;
+    }
+
+    .text-price{
+        padding: 0px 15px 0px 15px;
+    }
+
+    .ingredients{
+        padding: 0px 0px 15px 40px;
+    
+    }
+
+    .contacts-container{
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 540px)
+{
+    header > nav{
+        display: none;
+    }
+
+    .burger-menu{
+        display: flex;
+    }
 }

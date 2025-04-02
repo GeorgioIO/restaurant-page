@@ -8,6 +8,7 @@ module.exports = {
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
       clean: true,
+      assetModuleFilename: 'assets/images/[name][hash][ext][query]',
     },
     devtool: "eval-source-map",
     devServer: {
@@ -29,7 +30,7 @@ module.exports = {
                 use : ["style-loader" , "css-loader"],
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg)$/i,
+                test: /\.(png|jpg|jpeg|gif|svg|avif)$/i,
                 type: 'asset/resource', 
             }
         ],

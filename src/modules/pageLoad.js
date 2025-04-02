@@ -1,8 +1,8 @@
 import logoImage from "../assets/images/logo.svg";
-import "../styles/style.css";
 
 function loadHomePage(){
     const content = document.getElementById("content");
+    content.innerHTML = ""
 
     const heroContainer = document.createElement("div");
     heroContainer.classList.add("hero");
