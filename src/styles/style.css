@@ -77,6 +77,7 @@ header{
     box-shadow: 0px 0px 30px 0px rgb(219, 219, 219);
     position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 header > .header-logo{
@@ -108,6 +109,7 @@ nav > .navigation-button{
     font-family: var(--general-font);
     font-size: 1.15rem;
     cursor: pointer;
+    color: black;
 }
 
 nav > .navigation-button:hover{
@@ -160,7 +162,7 @@ nav > .navigation-button:hover{
 }
 
 #sidebar{
-    position: absolute;
+    position: fixed;
     display: flex;
     gap: 20px;
     justify-content: space-evenly;
