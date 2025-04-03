@@ -169,8 +169,8 @@ nav > .navigation-button:hover{
     width: 100%;
     padding: 15px;
     background-color: white;
-    z-index: -1;
     transform: translateY(-300px);
+    z-index: 1;
 }
 #content{
     width: 100%;

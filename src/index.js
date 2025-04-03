@@ -16,20 +16,14 @@ document.addEventListener("DOMContentLoaded" , () => {
 burgerMenu.addEventListener("click" , () => {
     if(sideBar.dataset.active === "true")
     {
-        sideBar.style.zIndex = -1;
-        setTimeout(() => {
-            sideBar.classList.remove("showSideBar")
-            sideBar.classList.add("hideSideBar");
-        }, 200)
+        sideBar.classList.remove("showSideBar")
+        sideBar.classList.add("hideSideBar");
         sideBar.dataset.active = "false";
     }
     else
     {
         sideBar.classList.remove("hideSideBar")
         sideBar.classList.add("showSideBar");
-        setTimeout(() => {
-            sideBar.style.zIndex = 0;
-        }, 500)
         sideBar.dataset.active = "true";
     }
 })
